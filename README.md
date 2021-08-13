@@ -2,9 +2,6 @@
 A set of modified and developed classes for Iceland southern road mobility model.
 
 ****************************************************
-*                                                  *
-*                                                  *
-*                                                  *
 ****************************************************
 
 **> Description <**
@@ -15,5 +12,5 @@ This repository, includes all the modified or developed classes for the mentione
 
 **> Usage <**
 Download The ONE simulator or clone from Github via the link --> https://github.com/robgjansen/tps-one-simulator
-Clone the following repository and simply copy-paste the Java classes of this repository in the corresponding folder.
+Clone also this repository and simply copy-paste the Java classes in the corresponding folder.
 Compiling and running information are available on the link above.
