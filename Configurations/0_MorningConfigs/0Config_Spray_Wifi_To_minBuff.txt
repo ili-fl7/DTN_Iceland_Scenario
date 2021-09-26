@@ -1,0 +1,152 @@
+# Costum settings for the simulation
+
+## Scenario settings
+
+Scenario.name = Spray.Wifi.To.minBuff_Morning
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.5
+# 16020s == 4h45' for 6:15-11:00 + 2700 for initial delay
+Scenario.endTime = 18720
+
+## Interface Settings: bt and wifi
+# Transmit speed in bytes: 2 Mbps = 250kBps
+
+btInterface.type = SimpleBroadcastInterface
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 10
+
+wifiInterface.type = SimpleBroadcastInterface
+wifiInterface.transmitSpeed = 6.75M
+wifiInterface.transmitRange = 60
+
+
+## Define different node groups
+########################################################
+# Groups default settings
+Scenario.nrofHostGroups = 7
+Group.router = SprayAndWaitRouter
+# NodeMCU ESP32 ROM 448k - Smartphone 500M
+Group.bufferSize = 448k
+Group.nrofInterfaces = 1
+Group.interface1 = wifiInterface
+Group.speed = 23.6, 27.7
+Group.msgTtl = 300
+# Morning=0, Noon=1, Evening=2, Night=3
+Group.dayTime = 0
+########################################################
+
+# Groups specific settings
+Group1.groupID = C
+Group1.movementModel = MyCounterLocations
+Group1.nrofHosts = 9
+Group1.msgTtl = 1
+Group1.bufferSize = 1k
+
+Group2.groupID = A
+Group2.movementModel = MyTouristMovement1
+Group2.nrofHosts = 6
+Group2.waitTime = 1800, 2400
+Group2.initWaitTime = 900, 3600
+
+Group3.groupID = T
+Group3.movementModel = MyTouristMovement2
+Group3.nrofHosts = 6
+Group3.waitTime = 1800, 2400
+Group3.initWaitTime = 1140, 3600
+
+Group4.groupID = B
+Group4.movementModel = MyTouristMovement3
+Group4.nrofHosts = 5
+Group4.waitTime = 1800, 2400
+Group4.initWaitTime = 4500, 6300
+
+Group5.groupID = N
+Group5.movementModel = MyRingRoadToEastMovement
+Group5.nrofHosts = 39
+Group5.waitTime = 1800, 2400
+Group5.initWaitTime = 100, 9000
+
+Group6.groupID = Y
+Group6.movementModel = MyRingRoadToWestMovement
+Group6.nrofHosts = 16
+#Group6.waitTime = 900, 2700
+Group6.initWaitTime = 6500, 14000
+
+Group7.groupID = R
+Group7.movementModel = MyReceiverLocation
+Group7.nrofHosts = 1
+Group7.waitTime = 300, 360
+Group7.initWaitTime = 2700, 3600
+
+## Message creation parameters 
+
+# How many event generators
+Events.nrof = 1
+# Class of the first event generator
+Events1.class = OneToEachMessageGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 10 minutes)
+Events1.interval = 1,2
+Events1.time = 3600, 4200
+# Message sizes (1kB - 200KB)
+Events1.size = 1k, 200k
+# One node send to all except counters (~71 messages)
+Events1.hosts = 16,16
+# range of destinations
+Events1.tohosts = 9,81
+# Message ID prefix
+Events1.prefix = M
+
+## Movement model settings
+
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = 2
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 150000, 150000
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 2700
+
+## Map based movement -movement model specific settings
+
+MapBasedMovement.nrofMapFiles = 1
+# Map below includes these road types: trunk, secondary, tertiary
+MapBasedMovement.mapFile1 = data/Iceland/scenario.wkt
+
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 2
+# length of the warm up period (simulated seconds)
+Report.warmup = 2700
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/0_Morning/
+# Report classes to load
+Report.report1 = MessageStatsReport
+Report.report2 = MessageDeliveryReport
+
+## Default settings for some routers settings
+
+ProphetRouter.secondsInTimeUnit = 30
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
+
+## Optimization settings -- these affect the speed of the simulation
+## see World class for details.
+
+Optimization.cellSizeMult = 5O
+Optimization.randomizeUpdateOrder = true
+
+## GUI settings
+
+# GUI underlay image settings
+#GUI.UnderlayImage.fileName = data/helsinki_underlay.png
+# Image offset in pixels (x, y)
+#GUI.UnderlayImage.offset = 64, 20
+# Scaling factor for the image
+#GUI.UnderlayImage.scale = 4.75
+# Image rotation (radians)
+#GUI.UnderlayImage.rotate = -0.015
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 100
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$
