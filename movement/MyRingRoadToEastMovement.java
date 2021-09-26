@@ -48,7 +48,7 @@ public class MyRingRoadToEastMovement extends MyMapBasedMovement implements
 		this.pois = mbm.pois;
 	}
 	
-	static boolean tourIsFinished = false;
+	boolean tourIsFinished = false;
 	@Override
 	public Path getPath() {
 		boolean alreadyOnSpot = false;

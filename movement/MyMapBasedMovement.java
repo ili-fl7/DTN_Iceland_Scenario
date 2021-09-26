@@ -160,15 +160,15 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		int dayTimeID = this.getDayTime();
 		
 		Coord[] counterLocation = {
-				new Coord(1744.143, 46869.218),		//C0
-				new Coord(7493.507, 39560.275),		//C1
-				new Coord(18466.993, 24194.281),	//C2
-				new Coord(25853.721, 18780.89),		//C3
-				new Coord(37790.483, 14619.119),	//C4
-				new Coord(56118.833, 7845.725),		//C5
-				new Coord(67821.448, 5293.879),		//C6
-				new Coord(89942.131, 7314.48),		//C7
-				new Coord(108638.817, 36795.369)};	//C8
+				new Coord(1744.143, 46869.218),		//C1
+				new Coord(7493.507, 39560.275),		//C2
+				new Coord(18466.993, 24194.281),	//C3
+				new Coord(25853.721, 18780.89),		//C4
+				new Coord(37790.483, 14619.119),	//C5
+				new Coord(56118.833, 7845.725),		//C6
+				new Coord(67821.448, 5293.879),		//C7
+				new Coord(89942.131, 7314.48),		//C8
+				new Coord(108638.817, 36795.369)};	//C9
 		
 		nodeID +=1;
 		currentNode = nodeID;
@@ -207,16 +207,17 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 	 * @return initial location of a host for morning scenario
 	 */
 	public Coord getMorningInitialLocation() {
+		String currentNodeID = host.getNodeID();
 		Coord currentNodeCoord;
+		Coord[] noonInitLocations = {
+				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N,R
+				new Coord(113513.213, 40405.067)};	//Kirkju for gid Y
 		
-		if (nodeID>56) {
-			Coord loc = new Coord(113513.213, 40405.067);	//Kirkju
-			currentNodeCoord = getConvertedCoord(loc);
-		}
-		
-		else {
-			Coord loc = new Coord(310.118, 47616.681);		//Hella
-			currentNodeCoord = getConvertedCoord(loc);	
+		switch (currentNodeID) {
+		case "Y":
+			currentNodeCoord = getConvertedCoord(noonInitLocations[1]);
+			break;
+		default: currentNodeCoord = getConvertedCoord(noonInitLocations[0]);	//For A,B,T,N,R
 		}
 		
 		return currentNodeCoord;
@@ -230,7 +231,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		String currentNodeID = host.getNodeID();
 		Coord currentNodeCoord;
 		Coord[] noonInitLocations = {
-				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N
+				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N,R
 				new Coord(37790.483, 14619.119),	//C4 for gid E,W
 				new Coord(56118.833, 7845.725),		//C5 for gid G
 				new Coord(89942.131, 7314.48),		//C7 for gid F
@@ -252,7 +253,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		case "W":
 			currentNodeCoord = getConvertedCoord(noonInitLocations[1]);
 			break;
-		default: currentNodeCoord = getConvertedCoord(noonInitLocations[0]);	//For A,B,T,N
+		default: currentNodeCoord = getConvertedCoord(noonInitLocations[0]);	//For A,B,T,N,R
 		}
 		
 		return currentNodeCoord;
@@ -266,7 +267,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		String currentNodeID = host.getNodeID();
 		Coord currentNodeCoord;
 		Coord[] eveningInitLocations = {
-				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N
+				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N,R
 				new Coord(56118.833, 7845.725),		//C5 for gid G
 				new Coord(89942.131, 7314.48),		//C7 for gid E
 				new Coord(113513.213, 40405.067)};	//Kirkju for gid Y
@@ -281,7 +282,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		case "E":
 			currentNodeCoord = getConvertedCoord(eveningInitLocations[2]);
 			break;
-		default: currentNodeCoord = getConvertedCoord(eveningInitLocations[0]); //For A,B,T,N
+		default: currentNodeCoord = getConvertedCoord(eveningInitLocations[0]); //For A,B,T,N,R
 		}
 		
 		return currentNodeCoord;
@@ -295,7 +296,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		String currentNodeID = host.getNodeID();
 		Coord currentNodeCoord;
 		Coord[] nightInitLocations = {
-				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N
+				new Coord(310.118, 47616.681),		//Hella for gid A,B,T,N,R
 				new Coord(25853.721, 18780.89),		//C3 for gid E,W
 				new Coord(56118.833, 7845.725),		//C5 for gid G
 				new Coord(89942.131, 7314.48),		//C7 for gid F
@@ -317,7 +318,7 @@ public class MyMapBasedMovement extends MovementModel implements SwitchableMovem
 		case "F":
 			currentNodeCoord = getConvertedCoord(nightInitLocations[3]);
 			break;
-		default: currentNodeCoord = getConvertedCoord(nightInitLocations[0]); //For A,B,T,N
+		default: currentNodeCoord = getConvertedCoord(nightInitLocations[0]); //For A,B,T,N,R
 		}
 		
 		return currentNodeCoord;
