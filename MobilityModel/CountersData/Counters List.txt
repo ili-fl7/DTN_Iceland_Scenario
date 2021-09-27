@@ -1,0 +1,22 @@
+IDTEL	IDSTOD	MAELDAKREIN	NAFN	PNT_X	PNT_Y
+
+4759	2172	1	Hella (Veðurstofustöð)	432753,854	369786,067
+
+2470	916	1	Vestan Hvolsvallar	438137,033	362551,825
+
+4758	74	2	Við Markarfljót (veðurstöð), til Landeyjahafnar (til suðurs)	448971,4	346751,454
+4481	74	1	Við Markarfljót (veðurstöð)	449009,421	346748,28
+
+1253	53	1	Við Hvamm undir Eyjafjöllum	455194,18	341808,218
+
+1251	29	1	Við Steina undir Eyjafjöllum	465650,547	337724,982
+
+2042	5023	1	Við Pétursey, akrein til vesturs	486511,638	329963,657
+2043	5023	2	Við Pétursey, akrein til austurs	486510,844	329961,21
+
+4482	79	1	Reynisfjall	498118,067	327430,895
+
+1249	6	1	Veðurstöð á Mýrdalssandi	519458,016	328806,296
+
+2044	5022	1	Eldhraun, akr. frá Kirkjubæjarklaustri (til vesturs)	539620,234	359105,867
+2045	5022	2	Eldhraun, akr. til Kirkjubæjarklausturs (til austurs)	539621,716	359103,644
