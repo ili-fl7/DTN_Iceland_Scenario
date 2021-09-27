@@ -1,0 +1,20 @@
+Message stats for scenario Spray.Wifi.To.maxBuff_EveningMinB
+sim_time: 22500.0000
+created: 376
+started: 1463
+relayed: 1463
+aborted: 0
+dropped: 1497
+removed: 0
+delivered: 342
+delivery_prob: 0.9096
+response_prob: 0.0000
+overhead_ratio: 3.2778
+latency_avg: 1928.0965
+latency_med: 1.0000
+hopcount_avg: 1.3480
+hopcount_med: 1
+buffertime_avg: 17687.5431
+buffertime_med: 17721.0000
+rtt_avg: NaN
+rtt_med: NaN
