@@ -1,0 +1,20 @@
+Message stats for scenario Epi.Bt.To.minBuff_NoonMaxB
+sim_time: 15300.0000
+created: 234
+started: 174481
+relayed: 174202
+aborted: 267
+dropped: 172414
+removed: 0
+delivered: 16
+delivery_prob: 0.0684
+response_prob: 0.0000
+overhead_ratio: 10886.6250
+latency_avg: 2545.0625
+latency_med: 2679.5000
+hopcount_avg: 38.8125
+hopcount_med: 16
+buffertime_avg: 44.9009
+buffertime_med: 3.5000
+rtt_avg: NaN
+rtt_med: NaN

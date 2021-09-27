@@ -1,0 +1,20 @@
+Message stats for scenario Epi.Wifi.To.minBuff_NoonMaxB
+sim_time: 15300.0000
+created: 234
+started: 582855
+relayed: 582810
+aborted: 0
+dropped: 581500
+removed: 0
+delivered: 10
+delivery_prob: 0.0427
+response_prob: 0.0000
+overhead_ratio: 58280.0000
+latency_avg: 4849.8500
+latency_med: 7187.5000
+hopcount_avg: 62.1000
+hopcount_med: 15
+buffertime_avg: 18.0831
+buffertime_med: 3.0000
+rtt_avg: NaN
+rtt_med: NaN
